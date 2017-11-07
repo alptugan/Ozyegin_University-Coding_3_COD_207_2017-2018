@@ -8,21 +8,10 @@ void setup() {
 }
 void draw() {
   background(0);
-  x = width * 0.5 - w*0.5;
-  y = height *0.5 - h*0.5;
+  x = width;
+  y = 60;
 
-  if (isEnterPressed == true) {
-    textSize(128);
-    text("ENTER PRESSED", x, y);
-  }
-}
-
-void keyPressed() {
-  if (key == CODED) {
-    if (keyCode == ENTER) {
-      isEnterPressed = true;
-    }else{
-      isEnterPressed = false;
-    }
-  }
+    textSize(64);
+    text("SOMETHING IS MOVING AROUND", x, y);
+  
 }
