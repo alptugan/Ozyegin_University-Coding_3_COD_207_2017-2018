@@ -1,8 +1,10 @@
 float x;
 float y;
 boolean isSwitched = false;
+float speed = 5;
 int direction = -1;
-String str = "SOMETHING IS MOVING AROUND";
+String str = "SOMETHING IS MOVING BACK & FORTH";
+
 void setup() {
   size(600, 600);
   y = 60;
@@ -11,12 +13,12 @@ void setup() {
 void draw() {
   background(0);
   
-  if( x < -textWidth() || x > width + 100) {
+  if( x < -textWidth(str) || x > width + 100) {
     direction = direction * -1;
   }
   
-  x = x + (10 * direction);
+  x = x + (100 * direction);
   
   textSize(64);
-  text(, x, y);
+  text(str, x, y);
 }
