@@ -42,8 +42,8 @@ void draw() {
   text(str, x, y);
   
   // Condition for the 2nd string: str2
-  if(x2 > width) {
-    x2 = -textWidth(str2);
+  if(x2 < -textWidth(str2)) {
+    x2 = width;
     red = random(255);
     green = random(255);
     blue = random(255);
