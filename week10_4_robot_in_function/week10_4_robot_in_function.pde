@@ -5,7 +5,7 @@ float x;
 float y;
 
 float pct = 0.09;
-
+float mult = 0;
 
 void setup() {
 
@@ -28,12 +28,11 @@ void draw() {
   // draw 30 robots
   float nx = 0;
   float ny = 0;
-  for (int i = 0; i < 30; i++) {
+  for (int i = 0; i < 120; i++) {
+    nx = (80*(i % 11));     
     
-    if(nx < width) {
-      nx = (80*i); 
-    }else{
-      ny = ny + 180;
+    if (i % 11 == 0 && i != 0) {
+      ny = ny + 160;
     }
     drawMycustomRobot(nx, ny);
   }
