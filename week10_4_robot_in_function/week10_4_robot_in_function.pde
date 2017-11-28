@@ -34,11 +34,12 @@ void draw() {
     if (i % 11 == 0 && i != 0) {
       ny = ny + 160;
     }
-    drawMycustomRobot(nx, ny);
+    
+    drawMycustomRobot(nx, ny,random(255),random(255),random(255));
   }
 }
 
-void drawMycustomRobot(float xpos, float ypos) {
+void drawMycustomRobot(float xpos, float ypos, float r,float g,float b) {
   pushMatrix();
 
   //translate(mouseX,mouseY);
@@ -56,7 +57,7 @@ void drawMycustomRobot(float xpos, float ypos) {
   rect(42, 36, 5, 4);
 
   // head
-  fill(#3FA9F5);
+  fill(r,g,b);
   arc(44, 76, 72, 72, PI, PI*2, PIE);
 
   // draw remaining part
@@ -111,7 +112,7 @@ void drawMycustomRobot(float xpos, float ypos) {
   rect(40, 150, 10, 6);
 
   // draw body & change color
-  fill(#3FA9F5);
+  fill(r,g,b);
   rect(16, 156, 55, 66);
 
   // draw left shoulder
@@ -119,7 +120,7 @@ void drawMycustomRobot(float xpos, float ypos) {
   rect(8, 166, 8, 8);
 
   // draw left arm & change color to blue
-  fill(#3FA9F5);
+  fill(r,g,b);
   rect(0, 166, 8, 61);
 
   // draw right shoulder
@@ -127,7 +128,7 @@ void drawMycustomRobot(float xpos, float ypos) {
   rect(71, 166, 8, 8);
 
   // draw right arm & change color to blue
-  fill(#3FA9F5);
+  fill(r,g,b);
   rect(79, 166, 8, 61);
 
   // left leg part
@@ -135,7 +136,7 @@ void drawMycustomRobot(float xpos, float ypos) {
   rect(22, 222, 8, 8);
 
   // left leg
-  fill(#3FA9F5);
+  fill(r,g,b);
   rect(22, 230, 8, 61);
 
   // right leg part
@@ -143,7 +144,7 @@ void drawMycustomRobot(float xpos, float ypos) {
   rect(58, 222, 8, 8);
 
   // right leg
-  fill(#3FA9F5);
+  fill(r,g,b);
   rect(58, 230, 8, 61);
 
   // left foot
