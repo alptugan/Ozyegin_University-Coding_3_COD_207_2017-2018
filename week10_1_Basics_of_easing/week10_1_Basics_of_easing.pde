@@ -17,8 +17,8 @@ void draw() {
   xb = 300;
   yb = 300;
   
-  x = x + (xb - x) * pct;
-  y = y + (yb - y) * pct;
+  x = x + 1;
+  y = y + 1;
   
   background(255);
   
