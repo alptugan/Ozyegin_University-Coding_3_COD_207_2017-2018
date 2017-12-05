@@ -1,3 +1,15 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+// Sound for hit
+Minim minim;
+AudioPlayer player;
+
+
 float x = 0;
 float y = 0;
 float dx = 1;
@@ -22,6 +34,15 @@ float rh = 153;
 
 void setup() {
   size(600, 600);
+
+  setupSound();
+}
+
+void setupSound() {
+
+  // instantiate lib and load sound to play
+  minim = new Minim(this);
+  player = minim.loadFile("hit.wav");
 }
 
 void draw() {
@@ -30,7 +51,7 @@ void draw() {
   if (scene2 == true) {
     // draw robot
     drawMycustomRobot(mouseX, mouseY, 52, 152, 219);
-    
+
     x = x+accx*dx;
     y = y +accy*dy;
 
@@ -45,8 +66,8 @@ void draw() {
       dy = dy*-1;
     }
 
-   
-    
+
+
     fill(0);
     noStroke();
     ellipse(x, y, radEnemy, radEnemy);
@@ -54,20 +75,24 @@ void draw() {
     // Check hit detection with robot and enemy ball
     if (mouseX + rw/2 > x-radEnemy/2 && mouseX - rw/2 < x + radEnemy/2
       && mouseY + rh/2> y - radEnemy/2 && mouseY - rh/2 < y + radEnemy/2) {
-        scene3 = true;
-        scene1 = false;
-        scene2 = false;
+      scene3 = true;
+      scene1 = false;
+      scene2 = false;
+
+      /// Play preloaded sound when it hits 
+      player.rewind();
+      player.play();
     }
   }
 
   if (scene1 == true) {
     startButton();
   }
-  
+
   // Scene 3 content
-  if(scene3 == true) {
-    fill(255,0,0,150);
-    rect(0,0,width,height); 
+  if (scene3 == true) {
+    fill(255, 0, 0, 150);
+    rect(0, 0, width, height);
   }
 }
 
@@ -99,8 +124,8 @@ void drawMycustomRobot(float xpos, float ypos, float r, float g, float b) {
 
   //translate(mouseX,mouseY);
   translate(xpos - 50 + 25, ypos - 150 + 75);
-  fill(255,0,0,50);
-  rect(0,0,rw,rh);
+  fill(255, 0, 0, 50);
+  rect(0, 0, rw, rh);
   scale(0.5, 0.5);
   // antenne
   noStroke();
